@@ -1,0 +1,87 @@
+import unittest
+import lib
+import math
+class LibTest(unittest.TestCase):
+# even
+    def test_evenpol(self):
+        self.assertEqual(lib.even(1), False)
+        self.assertEqual(lib.even(2), True)
+        self.assertEqual(lib.even(3), False)
+        self.assertEqual(lib.even(4), True)
+    def test_evenzero(self):
+        self.assertEqual(lib.even(0), True)
+    def test_evenotr(self):
+        self.assertEqual(lib.even(-1), False)
+        self.assertEqual(lib.even(-2), True)
+        self.assertEqual(lib.even(-3), False)
+        self.assertEqual(lib.even(-4), True)
+# factorial
+    def test_factpol(self):
+        self.assertEqual(lib.factorial(1), 1)
+        self.assertEqual(lib.factorial(2), 2)
+        self.assertEqual(lib.factorial(3), 6)
+        self.assertEqual(lib.factorial(4), 24)
+    def test_factzero(self):
+        self.assertEqual(lib.factorial(0), 0)
+    def test_factotr(self):
+        self.assertEqual(lib.factorial(-1), 1)
+        self.assertEqual(lib.factorial(-2), 1)
+        self.assertEqual(lib.factorial(-3), 1)
+        self.assertEqual(lib.factorial(-4), 1)
+# palindrome
+    def test_palind4(self):
+        self.assertEqual(lib.palindrome('aaaa'), True)
+        self.assertEqual(lib.palindrome('abba'), True)
+    def test_palind5(self):
+        self.assertEqual(lib.palindrome('aaaaa'), True)
+        self.assertEqual(lib.palindrome('abbba'), True)
+        self.assertEqual(lib.palindrome('aabaa'), True)
+    def test_palind3(self):
+        self.assertEqual(lib.palindrome('aba'), True)
+        self.assertEqual(lib.palindrome('aaa'), True)
+    def test_palind2(self):
+        self.assertEqual(lib.palindrome('aa'), True)
+    def test_palind1(self):
+        self.assertEqual(lib.palindrome('a'), True)
+# prime
+    def test_primepol(self):
+        self.assertEqual(lib.prime(1), True)
+        self.assertEqual(lib.prime(2), True)
+        self.assertEqual(lib.prime(3), True)
+        self.assertEqual(lib.prime(4), False)
+        self.assertEqual(lib.prime(5), True)
+        self.assertEqual(lib.prime(6), False)
+        self.assertEqual(lib.prime(7), True)
+        self.assertEqual(lib.prime(8), False)
+    def test_primezero(self):
+        self.assertEqual(lib.prime(0), True)
+    def test_primeotr(self):
+        self.assertEqual(lib.prime(-1), True)
+        self.assertEqual(lib.prime(-2), True)
+        self.assertEqual(lib.prime(-3), True)
+        self.assertEqual(lib.prime(-4), False)
+        self.assertEqual(lib.prime(-5), True)
+        self.assertEqual(lib.prime(-6), False)
+        self.assertEqual(lib.prime(-7), True)
+        self.assertEqual(lib.prime(-8), False)
+# sin
+    def test_sinpol(self):
+        self.assertEqual(lib.sin(math.pi/2), 1)
+        self.assertEqual(lib.sin(math.pi), 0)
+        self.assertEqual(lib.sin(math.pi*3/2), -1)
+        self.assertEqual(lib.sin(math.pi*2), 0)
+    def test_sinzero(self):
+        self.assertEqual(lib.sin(0), 0)
+    def test_sinotr(self):
+        self.assertEqual(lib.sin(math.pi*(-1)/2), -1)
+        self.assertEqual(lib.sin(math.pi*(-1)), 0)
+        self.assertEqual(lib.sin(math.pi*(-3/2)), 1)
+        self.assertEqual(lib.sin(math.pi*(-2)), 0)
+# sqrt
+    def test_sqrtpol(self):
+        self.assertEqual(lib.sqrt(9), 3)
+        self.assertEqual(lib.sqrt(1), 1)
+        self.assertEqual(lib.sqrt(0), 0)
+    def test_sqrtotr(self):
+        self.assertEqual(lib.sqrt(-1), 0)
+unittest.main(verbosity=2)
